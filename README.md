@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚢 MUELLE - Inteligencia Logística Avanzada
 
-## Getting Started
+**Muelle** es una plataforma SaaS de próxima generación diseñada para automatizar y optimizar la cadena de suministro global. Mediante el uso de inteligencia artificial y automatización robótica de procesos (RPA), Muelle elimina los cuellos de botella en la gestión de itinerarios y documentación aduanera.
 
-First, run the development server:
+![Muelle Banner](https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200&h=400)
 
+## 🤖 Caitlyn AI: El "Itinerary Hunter"
+El corazón de Muelle es **Caitlyn**, un agente autónomo capaz de cazar itinerarios en tiempo real navegando por los portales de las principales navieras del mundo.
+
+### Características Principales:
+- 🚀 **Búsqueda Multi-Fuente Paralela:** Consulta simultáneamente a Maersk, MSC, CMA CGM, Hapag-Lloyd y COSCO.
+- 📡 **Live Logs (WebSockets):** Notificaciones en tiempo real del progreso de búsqueda (Caitlyn narra cada paso que da).
+- 🧠 **Smart Discovery:** Detección dinámica de campos, placeholders y formatos de fecha en cualquier portal logístico.
+- 📸 **Visión por Computadora (OCR):** Extracción de datos precisos mediante el análisis de capturas de pantalla con EasyOCR.
+- 🕵️‍♂️ **Navegación Sigilosa:** Bypass de banners de cookies y validaciones mediante inyección de eventos nativos.
+
+## 🛠️ Stack Tecnológico
+
+### Frontend (Muelle App)
+- **Framework:** Next.js 15+ (App Router)
+- **Lenguaje:** TypeScript
+- **Estilos:** Tailwind CSS con estética Dark Mode Premium.
+- **Iconografía:** Lucide React.
+- **Comunicación:** WebSockets para logs en vivo.
+
+### Backend (Caitlyn Engine)
+- **Core:** FastAPI (Python 3.12+)
+- **Automatización:** Playwright (Chromium)
+- **IA/OCR:** EasyOCR + PyTorch.
+- **Base de Datos:** MongoDB.
+- **Procesamiento:** Asyncio para ejecución paralela de scrapers.
+
+## 🚀 Instalación y Desarrollo
+
+### Requisitos
+- Node.js 18+
+- Python 3.10+
+- MongoDB local o en la nube.
+
+### Configuración del Backend (Caitlyn)
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd ionic-maps-backend
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python run.py
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Configuración del Frontend (Muelle)
+```bash
+cd Muelle
+npm install
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🌐 Estructura del Proyecto
+- `/Muelle`: Aplicación principal en Next.js.
+- `/ionic-maps-backend`: Microservicio de IA y automatización.
+- `/app/scrapers`: Motores de búsqueda inteligente (SmartFinder).
+- `/app/ai`: Almacén de datasets y capturas de debug.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+Desarrollado con ❤️ por **Angel F.** para modernizar la logística mundial.
