@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { Ship, Clock, DollarSign, ExternalLink, ShieldCheck, MapPin } from 'lucide-react';
+import React, { useState } from 'react';
+import { Ship, Clock, DollarSign, ExternalLink, ShieldCheck, MapPin, ChevronDown, ChevronUp } from 'lucide-react';
 
 interface Itinerary {
   source: string;
@@ -17,14 +17,16 @@ interface LogisticsResultsProps {
 }
 
 const LogisticsResults: React.FC<LogisticsResultsProps> = ({ results, origin, destination }) => {
+  const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>({});
+
   if (!results || results.length === 0) return null;
 
   const getSourceColor = (source: string) => {
     switch (source.toUpperCase()) {
-      case 'MAERSK': return 'from-blue-500 to-cyan-400';
-      case 'MSC': return 'from-orange-500 to-yellow-400';
-      case 'SEARATES': return 'from-emerald-500 to-teal-400';
-      default: return 'from-slate-500 to-slate-400';
+      case 'MAERSK': return 'bg-blue-500 text-white';
+      case 'MSC': return 'bg-orange-500 text-white';
+      case 'SEARATES': return 'bg-emerald-500 text-white';
+      default: return 'bg-slate-500 text-white';
     }
   };
 
@@ -53,63 +55,114 @@ const LogisticsResults: React.FC<LogisticsResultsProps> = ({ results, origin, de
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {results.map((it, idx) => (
-          <div key={idx} className="group relative">
-            {/* Gradiente de fondo al hacer hover */}
-            <div className={`absolute -inset-0.5 bg-gradient-to-r ${getSourceColor(it.source)} rounded-3xl opacity-0 group-hover:opacity-20 blur transition duration-500`}></div>
+      <div className="overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/50 shadow-2xl">
+        <div className="overflow-x-auto">
+          <table className="w-full text-left border-collapse whitespace-nowrap">
+            <thead>
+              <tr className="border-b border-slate-800 bg-slate-950/50 text-xs uppercase tracking-widest text-slate-500">
+                <th className="p-6 font-black w-1/3">Compañía / Plataforma</th>
+                <th className="p-6 font-black">Tiempo Tránsito</th>
+                <th className="p-6 font-black">Tarifa Est.</th>
+                <th className="p-6 font-black text-right">Acciones</th>
+              </tr>
+            </thead>
             
-            <div className="relative h-full bg-slate-900 border border-slate-800 p-6 rounded-3xl flex flex-col hover:border-slate-700/50 transition-colors shadow-2xl">
-              {/* Header: Badge de Fuente y Naviera */}
-              <div className="flex justify-between items-start mb-6">
-                <div className={`px-3 py-1 rounded-lg bg-gradient-to-r ${getSourceColor(it.source)} text-slate-950 text-[10px] font-black uppercase tracking-wider`}>
-                  {it.source}
-                </div>
-                <div className="bg-slate-800/50 p-2 rounded-xl border border-slate-700/50">
-                  <Ship className="w-5 h-5 text-cyan-400" />
-                </div>
-              </div>
+            {/* Agrupamos por Naviera y mostramos vista Resumen/Detalle */}
+            <tbody className="divide-y divide-slate-800/50 text-sm">
+              {Object.entries(
+                results.reduce((acc, it) => {
+                  const src = it.source.toUpperCase();
+                  if (!acc[src]) acc[src] = [];
+                  acc[src].push(it);
+                  return acc;
+                }, {} as Record<string, Itinerary[]>)
+              ).map(([source, items]) => {
+                const isExpanded = expandedGroups[source];
+                const bestOption = items[0]; // Usamos el primero como referencia
+                
+                return (
+                  <React.Fragment key={source}>
+                    {/* Fila Principal (Resumen de la Naviera) */}
+                    <tr 
+                      onClick={() => setExpandedGroups(p => ({ ...p, [source]: !p[source] }))}
+                      className="hover:bg-slate-800/30 transition-colors group cursor-pointer"
+                    >
+                      <td className="p-6">
+                        <div className="flex items-center gap-4">
+                          <div className="p-3 rounded-xl border border-slate-700/50 bg-slate-900 flex-shrink-0">
+                            <Ship className={`w-5 h-5 ${source === 'MAERSK' ? 'text-blue-400' : source === 'MSC' ? 'text-orange-400' : 'text-emerald-400'}`} />
+                          </div>
+                          <div>
+                            <div className="font-bold text-white text-base mb-1 group-hover:text-cyan-400 transition-colors">
+                              {source}
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className={`px-2 py-0.5 rounded text-[9px] font-black uppercase tracking-wider ${getSourceColor(source)}`}>
+                                OFICIAL
+                              </span>
+                              <span className="text-slate-500 text-xs">{items.length} opciones de ruta</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
 
-              <h4 className="text-xl font-bold text-white mb-1 group-hover:text-cyan-400 transition-colors">
-                {it.shipping_line || 'Naviera no especificada'}
-              </h4>
-              <p className="text-slate-500 text-sm mb-6">FCL Container 20' ST</p>
+                      <td className="p-6">
+                        <div className="flex items-center gap-2 text-slate-300 font-medium">
+                          <Clock className="w-4 h-4 text-slate-500" />
+                          Desde {bestOption.transit_time || 'Consultar'}
+                        </div>
+                      </td>
 
-              {/* Detalles Grid */}
-              <div className="grid grid-cols-2 gap-4 mb-8">
-                <div className="bg-slate-950/50 p-4 rounded-2xl border border-slate-800">
-                  <div className="flex items-center gap-2 text-slate-500 text-xs mb-1">
-                    <Clock className="w-3 h-3" />
-                    Tránsito
-                  </div>
-                  <div className="text-sm font-bold text-slate-200">
-                    {it.transit_time || 'Consultar'}
-                  </div>
-                </div>
-                <div className="bg-slate-950/50 p-4 rounded-2xl border border-slate-800">
-                  <div className="flex items-center gap-2 text-slate-500 text-xs mb-1">
-                    <DollarSign className="w-3 h-3" />
-                    Precio Estimado
-                  </div>
-                  <div className="text-sm font-black text-cyan-400">
-                    {it.price || 'Ver detalles'}
-                  </div>
-                </div>
-              </div>
+                      <td className="p-6">
+                        <div className="font-black text-cyan-400 flex items-center gap-1 text-lg">
+                          {bestOption.price && bestOption.price.trim() ? bestOption.price : 'Por cotizar'}
+                        </div>
+                      </td>
 
-              {/* Botones de acción */}
-              <div className="mt-auto pt-4 flex gap-3">
-                <button className="flex-1 h-12 bg-white text-slate-950 rounded-xl font-bold text-xs hover:bg-cyan-50 transition-all flex items-center justify-center gap-2">
-                  <ShieldCheck className="w-4 h-4" />
-                  Reservar
-                </button>
-                <button className="w-12 h-12 bg-slate-800 text-white rounded-xl font-bold hover:bg-slate-700 transition-all flex items-center justify-center border border-slate-700">
-                  <ExternalLink className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
+                      <td className="p-6 text-right">
+                        <div className="flex items-center justify-end gap-4">
+                          <button 
+                            onClick={(e) => e.stopPropagation()} 
+                            className="px-5 py-2.5 bg-white text-slate-950 font-bold text-xs rounded-xl hover:bg-cyan-50 transition-colors flex items-center gap-2"
+                          >
+                            <ShieldCheck className="w-4 h-4" />
+                            Pedir Cotización
+                          </button>
+                          <div className="p-2.5 bg-slate-800/50 text-slate-400 rounded-xl group-hover:text-cyan-400 group-hover:bg-slate-800 transition-colors border border-slate-700">
+                            {isExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    {/* Filas Desplegables (Detalles de los barcos) */}
+                    {isExpanded && items.map((it, idx) => (
+                      <tr key={`${source}-detail-${idx}`} className="bg-slate-950/40 hover:bg-slate-900/60 transition-colors border-l-2 border-l-cyan-500/50">
+                        <td className="p-4 pl-24">
+                          <div className="font-bold text-slate-300 text-sm mb-0.5">
+                            {it.shipping_line || 'Buque Regular'}
+                          </div>
+                          <div className="text-xs text-slate-500 font-medium">Contenedor FCL 20' ST</div>
+                        </td>
+                        <td className="p-4 text-sm text-slate-400 font-medium">
+                          {it.transit_time || 'Tránsito a confirmar'}
+                        </td>
+                        <td className="p-4 text-sm font-bold text-cyan-400/80">
+                          {it.price && it.price.trim() ? it.price : '-'}
+                        </td>
+                        <td className="p-4 text-right pr-6">
+                          <button className="px-4 py-2 bg-slate-800 text-slate-300 font-bold text-xs rounded-lg hover:bg-slate-700 hover:text-white transition-colors border border-slate-700">
+                            Elegir itinerario
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </React.Fragment>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

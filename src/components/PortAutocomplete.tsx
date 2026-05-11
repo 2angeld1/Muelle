@@ -152,7 +152,7 @@ export default function PortAutocomplete({ name, placeholder, label, accentColor
         />
 
         {/* Input oculto con el valor real para el form */}
-        <input type="hidden" name={name} value={selectedPort ? `${selectedPort.name}, ${selectedPort.region}` : query} />
+        <input type="hidden" name={name} value={selectedPort ? `${selectedPort.name}, ${selectedPort.country} (${selectedPort.code})` : query} />
 
         {loading && (
           <Loader2 className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 animate-spin" />
