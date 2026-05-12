@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowRight, Globe, FileText, Activity } from 'lucide-react';
 import muelleIcon from './icon.png';
 import SearchForm from '../components/SearchForm';
@@ -23,81 +24,90 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans">
-      {/* Navbar */}
-      <nav className="border-b border-slate-800/50 bg-slate-950/50 backdrop-blur-md fixed w-full z-50">
+    <div className="min-h-screen bg-zinc-50 text-slate-900 font-sans selection:bg-slate-900 selection:text-white">
+      {/* Navbar Estilo Apple */}
+      <nav className="border-b border-zinc-200/60 bg-white/70 backdrop-blur-xl fixed w-full z-50">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg shadow-cyan-500/20 overflow-hidden bg-white">
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center shadow-sm overflow-hidden bg-white border border-zinc-100">
               <Image src={muelleIcon} alt="Muelle Icon" className="w-full h-full object-cover" priority />
             </div>
-            <span className="text-2xl font-black tracking-tight text-white">MUELLE</span>
+            <span className="text-xl font-black tracking-tight text-slate-900">MUELLE</span>
           </div>
-          <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-300 tracking-wide">
-            <a href="#soluciones" className="hover:text-cyan-400 transition-colors">Soluciones</a>
-            <a href="#rastreo" className="hover:text-cyan-400 transition-colors">Rastreo Automático</a>
-            <a href="#tarifas" className="hover:text-cyan-400 transition-colors">Itinerarios</a>
+          <div className="hidden md:flex items-center gap-10 text-[13px] font-medium text-slate-500 tracking-tight">
+            <a href="#soluciones" className="hover:text-slate-900 transition-colors">Soluciones</a>
+            <a href="#rastreo" className="hover:text-slate-900 transition-colors">Rastreo Automático</a>
+            <a href="#tarifas" className="hover:text-slate-900 transition-colors">Itinerarios</a>
           </div>
-          <button className="bg-white text-slate-950 px-6 py-2.5 rounded-full font-bold text-sm hover:bg-cyan-50 transition-colors">
+          <button className="bg-slate-900 text-white px-6 py-2 rounded-full font-bold text-[13px] hover:bg-slate-800 transition-all shadow-sm">
             Acceso Clientes
           </button>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <main className="pt-32 pb-20 px-6 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center pt-10">
+      <main className="pt-40 pb-20 px-6 relative overflow-hidden">
+        {/* Decoración de fondo sutil */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-gradient-to-b from-blue-50/50 to-transparent pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center relative z-10">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700 mb-8">
-              <span className="flex h-2 w-2 rounded-full bg-cyan-400 animate-pulse"></span>
-              <span className="text-xs font-bold text-cyan-400 tracking-wider uppercase">Caitlyn AI Logística Activa</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-zinc-200 shadow-sm mb-10">
+              <span className="flex h-1.5 w-1.5 rounded-full bg-blue-600"></span>
+              <span className="text-[10px] font-bold text-slate-500 tracking-widest uppercase">Caitlyn AI v3.0</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-[1.1] mb-6">
-              Logística, <br />
-              <span className="text-cyan-400">sin el dolor <br />de cabeza.</span>
+            <h1 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.95] mb-8 text-slate-900">
+              Logística <br />
+              <span className="text-slate-400">rediseñada.</span>
             </h1>
-            <p className="text-lg text-slate-400 mb-10 font-medium leading-relaxed max-w-xl">
-              Plataforma de inteligencia logística que automatiza tus declaraciones, cotiza itinerarios y procesa facturas comerciales en segundos.
+            <p className="text-xl text-slate-500 mb-12 font-medium leading-relaxed max-w-lg">
+              La plataforma inteligente que automatiza declaraciones, cotiza itinerarios y procesa documentos con la precisión que tu negocio merece.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="h-14 px-8 bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded-2xl font-black text-sm transition-all flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/25">
-                Probar Cotizador AI
+            <div className="flex flex-col sm:flex-row gap-5">
+              <button className="h-14 px-10 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-xl shadow-slate-900/10">
+                Empezar Ahora
                 <ArrowRight className="w-4 h-4" />
               </button>
-              <button className="h-14 px-8 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white rounded-2xl font-bold text-sm transition-all flex items-center justify-center gap-2">
+              <Link href="/automator" className="h-14 px-10 bg-white hover:bg-zinc-50 border border-zinc-200 text-slate-900 rounded-2xl font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-sm">
                 Ver Demostración
-              </button>
+              </Link>
             </div>
           </div>
 
-          {/* Tarjeta Flotante con el Formulario */}
+          {/* Card de Búsqueda Estilo Apple */}
           <div className="relative">
-            <div className="bg-slate-900/80 backdrop-blur-xl border border-slate-700/50 p-8 rounded-3xl shadow-2xl relative">
-              <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
-                <Globe className="text-cyan-400 w-5 h-5" />
-                Buscador de Itinerarios
+            <div className="bg-white/80 backdrop-blur-2xl border border-white p-10 rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.05)] relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-8 opacity-5">
+                <Globe className="w-32 h-32 text-slate-900" />
+              </div>
+              
+              <h3 className="text-2xl font-bold mb-8 text-slate-900 flex items-center gap-3">
+                <Globe className="text-blue-600 w-6 h-6" />
+                Buscar Itinerarios
               </h3>
 
               <SearchForm
                 onResults={handleSearchResults}
               />
 
-              <div className="mt-8 pt-6 border-t border-slate-800 flex items-center justify-between">
-                <div className="flex items-center gap-2 text-sm font-medium text-slate-400">
-                  <FileText className="w-4 h-4" />
-                  <span>PDFs procesados hoy:</span>
+              <div className="mt-10 pt-8 border-t border-zinc-100 flex items-center justify-between">
+                <div className="flex items-center gap-3 text-sm font-medium text-slate-400">
+                  <div className="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center">
+                    <FileText className="w-4 h-4" />
+                  </div>
+                  <span>Procesado por Caitlyn Vision</span>
                 </div>
-                <span className="text-cyan-400 font-bold">142</span>
+                <span className="text-slate-900 font-bold bg-zinc-100 px-3 py-1 rounded-lg">LIVE</span>
               </div>
             </div>
           </div>
         </div>
       </main>
 
-      {/* SECCIÓN DE RESULTADOS (Separada del Hero) */}
+      {/* SECCIÓN DE RESULTADOS */}
       {searchResults && (
-        <section className="bg-slate-950 relative border-t border-slate-900">
+        <section id="itinerarios-resultados" className="bg-white relative border-t border-zinc-100 py-20">
           <LogisticsResults
             results={searchResults.itineraries}
             origin={searchResults.origin}

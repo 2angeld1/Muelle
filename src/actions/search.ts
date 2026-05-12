@@ -70,3 +70,22 @@ export async function createSearchAction(formData: FormData) {
     return { error: "Hubo un error al contactar la base de datos." };
   }
 }
+
+export async function parseLogisticsDocumentAction(base64Image: string) {
+  try {
+    const pythonUrl = process.env.PYTHON_SERVICE_URL || "http://localhost:8000";
+    const response = await fetch(`${pythonUrl}/agent/logistics/parse-doc`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ imagen: base64Image }),
+    });
+
+    if (!response.ok) throw new Error("Error en Caitlyn Vision");
+    
+    const result = await response.json();
+    return { success: true, data: result.data };
+  } catch (error) {
+    console.error("❌ Error leyendo documento:", error);
+    return { error: "Caitlyn no pudo leer el documento." };
+  }
+}
