@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  muelle-db:
+    image: mongo:latest
+    container_name: muelle-db
+    ports:
+      - "27017:27017"
+    volumes:
+      - muelle_mongo_data:/data/db
+    restart: unless-stopped
+
+volumes:
+  muelle_mongo_data:

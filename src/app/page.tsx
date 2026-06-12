@@ -35,13 +35,13 @@ export default function Home() {
             <span className="text-xl font-black tracking-tight text-slate-900">MUELLE</span>
           </div>
           <div className="hidden md:flex items-center gap-10 text-[13px] font-medium text-slate-500 tracking-tight">
+            <Link href="/embarques" className="hover:text-slate-900 transition-colors font-bold text-slate-900">Embarques</Link>
             <a href="#soluciones" className="hover:text-slate-900 transition-colors">Soluciones</a>
-            <a href="#rastreo" className="hover:text-slate-900 transition-colors">Rastreo Automático</a>
-            <a href="#tarifas" className="hover:text-slate-900 transition-colors">Itinerarios</a>
+            <a href="#buscador-itinerarios" className="hover:text-slate-900 transition-colors">Itinerarios</a>
           </div>
-          <button className="bg-slate-900 text-white px-6 py-2 rounded-full font-bold text-[13px] hover:bg-slate-800 transition-all shadow-sm">
-            Acceso Clientes
-          </button>
+          <Link href="/embarques" className="bg-slate-900 text-white px-6 py-2 rounded-full font-bold text-[13px] hover:bg-slate-800 transition-all shadow-sm">
+            Panel Operativo
+          </Link>
         </div>
       </nav>
 
@@ -76,7 +76,7 @@ export default function Home() {
           </div>
 
           {/* Card de Búsqueda Estilo Apple */}
-          <div className="relative">
+          <div id="buscador-itinerarios" className="relative">
             <div className="bg-white/80 backdrop-blur-2xl border border-white p-10 rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.05)] relative overflow-hidden">
               <div className="absolute top-0 right-0 p-8 opacity-5">
                 <Globe className="w-32 h-32 text-slate-900" />
@@ -104,6 +104,45 @@ export default function Home() {
           </div>
         </div>
       </main>
+
+      {/* SECCIÓN DE SOLUCIONES */}
+      <section id="soluciones" className="py-24 bg-white relative">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-4xl font-black tracking-tight text-slate-900 mb-4">Soluciones Operativas</h2>
+            <p className="text-slate-500 text-lg">Todo lo que necesitas para automatizar y gestionar tu logística en una sola plataforma unificada.</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Feature 1 */}
+            <div className="bg-zinc-50 p-8 rounded-[32px] border border-zinc-100 hover:shadow-xl transition-all group">
+              <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Globe className="w-7 h-7" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Rastreo de Navieras</h3>
+              <p className="text-slate-500 leading-relaxed">Conexión directa vía API y Scraping con COSCO, MSC, Evergreen y Seaboard para actualizaciones en tiempo real.</p>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="bg-zinc-50 p-8 rounded-[32px] border border-zinc-100 hover:shadow-xl transition-all group">
+              <div className="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <FileText className="w-7 h-7" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Cartas de Retiro</h3>
+              <p className="text-slate-500 leading-relaxed">Generación automática de PDFs y redirección a portales de navieras según el estado del BL y los sellos.</p>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="bg-zinc-50 p-8 rounded-[32px] border border-zinc-100 hover:shadow-xl transition-all group">
+              <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Activity className="w-7 h-7" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Alertas Predictivas</h3>
+              <p className="text-slate-500 leading-relaxed">Cronómetros y notificaciones cuando se acercan las fechas críticas de corte documental o de carga física.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* SECCIÓN DE RESULTADOS */}
       {searchResults && (
