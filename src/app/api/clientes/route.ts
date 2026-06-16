@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
     await connectDB();
     const body = await request.json();
 
-    const { nombre, contactoEmail, contactoTelefono, direccion } = body;
+    const { nombre, contactoEmail, contactoTelefono, pais, direccion } = body;
     if (!nombre || !contactoEmail) {
       return Response.json(
         { error: "Nombre y correo de contacto son obligatorios" },
@@ -40,6 +40,7 @@ export async function POST(request: NextRequest) {
       nombre,
       contactoEmail,
       contactoTelefono: contactoTelefono || "",
+      pais: pais || "",
       direccion: direccion || "",
     });
 

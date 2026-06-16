@@ -1,63 +1,48 @@
-# 🚢 MUELLE - Inteligencia Logística Avanzada
+# 🚢 NexoExport — Gestión Inteligente de Exportaciones
 
-**Muelle** es una plataforma SaaS de próxima generación diseñada para automatizar y optimizar la cadena de suministro global. Mediante el uso de inteligencia artificial y automatización robótica de procesos (RPA), Muelle elimina los cuellos de botella en la gestión de itinerarios y documentación aduanera.
+**NexoExport** es una plataforma diseñada para centralizar, automatizar y optimizar los procesos de exportación, integrando clientes, documentación, contenedores, seguimiento y reportes en un solo lugar.
 
-![Muelle Banner](https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200&h=400)
+## 🎯 MVP 1.0 — Centralización
 
-## 🤖 Caitlyn AI: El "Itinerary Hunter"
-El corazón de Muelle es **Caitlyn**, un agente autónomo capaz de cazar itinerarios en tiempo real navegando por los portales de las principales navieras del mundo.
-
-### Características Principales:
-- 🚀 **Búsqueda Multi-Fuente Paralela:** Consulta simultáneamente a Maersk, MSC, CMA CGM, Hapag-Lloyd y COSCO.
-- 📡 **Live Logs (WebSockets):** Notificaciones en tiempo real del progreso de búsqueda (Caitlyn narra cada paso que da).
-- 🧠 **Smart Discovery:** Detección dinámica de campos, placeholders y formatos de fecha en cualquier portal logístico.
-- 📸 **Visión por Computadora (OCR):** Extracción de datos precisos mediante el análisis de capturas de pantalla con EasyOCR.
-- 🕵️‍♂️ **Navegación Sigilosa:** Bypass de banners de cookies y validaciones mediante inyección de eventos nativos.
+### Módulos Incluidos
+- 📊 **Dashboard** — KPIs en tiempo real, gráficos de exportaciones, alertas
+- 📦 **Exportaciones** — CRUD completo con expediente único por exportación
+- 📄 **Documentación** — Checklist de documentos por exportación
+- 🚢 **Contenedores** — Vista consolidada de todos los contenedores
+- 📍 **Tracking** — Seguimiento de embarques con barra de progreso
+- 👥 **Clientes** — Gestión de cartera de clientes
+- 📊 **Reportes** — Análisis por cliente, país y mes
+- 🔔 **Alertas** — Centro de notificaciones
 
 ## 🛠️ Stack Tecnológico
-
-### Frontend (Muelle App)
-- **Framework:** Next.js 15+ (App Router)
+- **Framework:** Next.js 16 (App Router)
 - **Lenguaje:** TypeScript
-- **Estilos:** Tailwind CSS con estética Dark Mode Premium.
-- **Iconografía:** Lucide React.
-- **Comunicación:** WebSockets para logs en vivo.
+- **Estilos:** Tailwind CSS
+- **Iconos:** Lucide React
+- **Base de Datos:** MongoDB + Mongoose
+- **Fuente:** Inter (Google Fonts)
 
-### Backend (Caitlyn Engine)
-- **Core:** FastAPI (Python 3.12+)
-- **Automatización:** Playwright (Chromium)
-- **IA/OCR:** EasyOCR + PyTorch.
-- **Base de Datos:** MongoDB.
-- **Procesamiento:** Asyncio para ejecución paralela de scrapers.
+## 🚀 Inicio Rápido
 
-## 🚀 Instalación y Desarrollo
-
-### Requisitos
-- Node.js 18+
-- Python 3.10+
-- MongoDB local o en la nube.
-
-### Configuración del Backend (Caitlyn)
 ```bash
-cd ionic-maps-backend
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python run.py
-```
-
-### Configuración del Frontend (Muelle)
-```bash
-cd Muelle
 npm install
 npm run dev
 ```
 
-## 🌐 Estructura del Proyecto
-- `/Muelle`: Aplicación principal en Next.js.
-- `/ionic-maps-backend`: Microservicio de IA y automatización.
-- `/app/scrapers`: Motores de búsqueda inteligente (SmartFinder).
-- `/app/ai`: Almacén de datasets y capturas de debug.
+La aplicación estará disponible en `http://localhost:3000`
+
+### Cargar Datos Demo
+Al entrar al dashboard, presiona el botón **"Cargar Datos Demo"** para generar 16 exportaciones de ejemplo con clientes, contenedores y documentos.
+
+## 🌐 Variables de Entorno
+```
+MONGODB_URI="mongodb://localhost:27017/nexoexport"
+```
+
+## 📋 Roadmap
+- **v1.0** — Centralización (actual)
+- **v2.0** — Automatización (Gmail API, Google Drive)
+- **v3.0** — Asistente Inteligente (IA conversacional)
 
 ---
-Desarrollado con ❤️ por **Angel F.** para modernizar la logística mundial.
+Desarrollado con ❤️ por **Angel F.** para optimizar la gestión de exportaciones.

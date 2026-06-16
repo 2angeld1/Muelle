@@ -1,9 +1,10 @@
 import mongoose, { Schema, Document, models } from "mongoose";
 
 export interface ICliente extends Document {
-  nombre: string;          // "SKECHERS", "CLIENTE B", etc.
+  nombre: string;
   contactoEmail: string;
   contactoTelefono?: string;
+  pais?: string;
   direccion?: string;
   activo: boolean;
   createdAt: Date;
@@ -29,6 +30,11 @@ const ClienteSchema = new Schema<ICliente>(
       trim: true,
       default: "",
     },
+    pais: {
+      type: String,
+      trim: true,
+      default: "",
+    },
     direccion: {
       type: String,
       trim: true,
@@ -43,6 +49,9 @@ const ClienteSchema = new Schema<ICliente>(
     timestamps: true,
   }
 );
+
+ClienteSchema.index({ nombre: 1 });
+ClienteSchema.index({ activo: 1 });
 
 const Cliente =
   models.Cliente || mongoose.model<ICliente>("Cliente", ClienteSchema);

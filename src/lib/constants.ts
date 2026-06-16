@@ -1,0 +1,18 @@
+export const BANDERAS_PAIS: Record<string, string> = {
+  Colombia: "🇨🇴",
+  México: "🇲🇽",
+  Chile: "🇨🇱",
+  "Estados Unidos": "🇺🇸",
+  Perú: "🇵🇪",
+  Ecuador: "🇪🇨",
+  Brasil: "🇧🇷",
+  Argentina: "🇦🇷",
+  "Costa Rica": "🇨🇷",
+  Guatemala: "🇬🇹",
+  Panamá: "🇵🇦",
+  "República Dominicana": "🇩🇴",
+  Honduras: "🇭🇳",
+  "El Salvador": "🇸🇻",
+  España: "🇪🇸",
+  China: "🇨🇳",
+};
