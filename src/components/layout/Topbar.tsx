@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Search, Bell, Loader2, LogOut, Info, AlertTriangle, CheckCircle, ChevronDown, Moon, Sun } from 'lucide-react';
+import { Search, Bell, LogOut, Info, AlertTriangle, CheckCircle, ChevronDown, Moon, Sun } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useTheme } from 'next-themes';
 
@@ -15,7 +15,8 @@ export default function Topbar() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {

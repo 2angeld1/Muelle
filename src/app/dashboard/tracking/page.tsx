@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Map, MapPin, Search, Navigation, Ship, CheckCircle2, Clock } from 'lucide-react';
+import { Map, Search, Navigation, Ship, CheckCircle2, Clock } from 'lucide-react';
 
 export default function TrackingPage() {
   const [searchTerm, setSearchTerm] = useState('');

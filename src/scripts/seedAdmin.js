@@ -1,6 +1,7 @@
-require("dotenv").config({ path: ".env" });
-const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
+import dotenv from "dotenv";
+dotenv.config({ path: ".env" });
+import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
