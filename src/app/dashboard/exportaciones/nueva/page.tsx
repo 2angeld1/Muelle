@@ -49,7 +49,7 @@ export default function NuevaExportacionPage() {
     <div className="max-w-2xl mx-auto space-y-6">
       <Link
         href="/dashboard/exportaciones"
-        className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-nexo-500 transition-colors font-medium"
+        className="inline-flex items-center gap-2 text-base text-slate-400 hover:text-nexo-500 transition-colors font-medium"
       >
         <ArrowLeft className="w-4 h-4" /> Volver a exportaciones
       </Link>
@@ -68,7 +68,7 @@ export default function NuevaExportacionPage() {
         <form onSubmit={handleSubmit} className="space-y-5">
           {/* Cliente */}
           <div className="space-y-1.5">
-            <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+            <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
               Cliente *
             </label>
             <input
@@ -76,14 +76,14 @@ export default function NuevaExportacionPage() {
               placeholder="Nombre del cliente"
               value={form.clienteNombre}
               onChange={(e) => setForm({ ...form, clienteNombre: e.target.value })}
-              className="w-full h-12 bg-slate-50 border border-slate-200 rounded-xl px-4 text-sm font-medium text-slate-900 placeholder:text-slate-400 transition-all"
+              className="w-full h-12 bg-slate-50 border border-slate-200 rounded-xl px-4 text-base font-medium text-slate-900 placeholder:text-slate-400 transition-all"
               required
             />
           </div>
 
           {/* País Destino */}
           <div className="space-y-1.5">
-            <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+            <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
               País destino *
             </label>
             <select
@@ -103,7 +103,7 @@ export default function NuevaExportacionPage() {
 
           {/* Puerto */}
           <div className="space-y-1.5">
-            <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+            <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
               Puerto de destino *
             </label>
             <input
@@ -111,14 +111,14 @@ export default function NuevaExportacionPage() {
               placeholder="Ej: Puerto de Cartagena"
               value={form.puerto}
               onChange={(e) => setForm({ ...form, puerto: e.target.value })}
-              className="w-full h-12 bg-slate-50 border border-slate-200 rounded-xl px-4 text-sm text-slate-900 placeholder:text-slate-400 transition-all"
+              className="w-full h-12 bg-slate-50 border border-slate-200 rounded-xl px-4 text-base text-slate-900 placeholder:text-slate-400 transition-all"
               required
             />
           </div>
 
           {/* Naviera */}
           <div className="space-y-1.5">
-            <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+            <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
               Naviera (opcional)
             </label>
             <input
@@ -126,13 +126,13 @@ export default function NuevaExportacionPage() {
               placeholder="Ej: COSCO, MSC, MAERSK"
               value={form.naviera}
               onChange={(e) => setForm({ ...form, naviera: e.target.value })}
-              className="w-full h-12 bg-slate-50 border border-slate-200 rounded-xl px-4 text-sm text-slate-900 placeholder:text-slate-400 transition-all"
+              className="w-full h-12 bg-slate-50 border border-slate-200 rounded-xl px-4 text-base text-slate-900 placeholder:text-slate-400 transition-all"
             />
           </div>
 
           {/* Notas */}
           <div className="space-y-1.5">
-            <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+            <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
               Notas (opcional)
             </label>
             <textarea
@@ -140,7 +140,7 @@ export default function NuevaExportacionPage() {
               value={form.notas}
               onChange={(e) => setForm({ ...form, notas: e.target.value })}
               rows={3}
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition-all resize-none"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 transition-all resize-none"
             />
           </div>
 

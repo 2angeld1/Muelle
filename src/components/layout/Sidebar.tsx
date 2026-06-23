@@ -68,7 +68,7 @@ export default function Sidebar({ collapsed, setCollapsed }: { collapsed: boolea
             <span className="text-white font-extrabold text-[15px] tracking-tight leading-tight">
               Nexo<span className="text-nexo-400">Export</span>
             </span>
-            <span className="text-[9px] font-medium text-white/30 uppercase tracking-[0.15em] leading-tight">
+            <span className="text-xs font-medium text-white/30 uppercase tracking-[0.15em] leading-tight">
               Gestión de Exportaciones
             </span>
           </div>
@@ -85,7 +85,7 @@ export default function Sidebar({ collapsed, setCollapsed }: { collapsed: boolea
                 <Link
                   href={item.href}
                   onClick={(e) => e.stopPropagation()}
-                  className={`group flex items-center gap-3 px-3 py-2.5 rounded-xl text-[13px] font-medium transition-all duration-200 relative cursor-pointer ${
+                  className={`group flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 relative cursor-pointer ${
                     isActive(item.href) ? 'bg-nexo-500 text-white shadow-lg shadow-nexo-500/25' : 'text-white/50 hover:text-white hover:bg-sidebar-hover'
                   } ${collapsed ? 'justify-center' : ''}`}
                   title={collapsed ? item.label : undefined}
@@ -97,7 +97,7 @@ export default function Sidebar({ collapsed, setCollapsed }: { collapsed: boolea
                 <Link
                   href="/dashboard/usuarios"
                   onClick={(e) => e.stopPropagation()}
-                  className={`group flex items-center gap-3 px-3 py-2.5 rounded-xl text-[13px] font-medium transition-all duration-200 relative cursor-pointer ${
+                  className={`group flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 relative cursor-pointer ${
                     isActive('/dashboard/usuarios') ? 'bg-nexo-500 text-white shadow-lg shadow-nexo-500/25' : 'text-white/50 hover:text-white hover:bg-sidebar-hover'
                   } ${collapsed ? 'justify-center' : ''}`}
                   title={collapsed ? 'Usuarios' : undefined}
@@ -117,7 +117,7 @@ export default function Sidebar({ collapsed, setCollapsed }: { collapsed: boolea
               key={item.href}
               href={item.href}
               onClick={(e) => e.stopPropagation()}
-              className={`group flex items-center gap-3 px-3 py-2.5 rounded-xl text-[13px] font-medium transition-all duration-200 relative cursor-pointer ${
+              className={`group flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 relative cursor-pointer ${
                 active
                   ? 'bg-nexo-500 text-white shadow-lg shadow-nexo-500/25'
                   : 'text-white/50 hover:text-white hover:bg-sidebar-hover'
@@ -129,7 +129,7 @@ export default function Sidebar({ collapsed, setCollapsed }: { collapsed: boolea
                 <>
                   <span>{item.label}</span>
                   {item.badge && (
-                    <span className={`ml-auto text-[10px] font-bold rounded-full px-2 py-0.5 ${
+                    <span className={`ml-auto text-xs font-bold rounded-full px-2 py-0.5 ${
                       active ? 'bg-white/20 text-white' : 'bg-nexo-500/20 text-nexo-400'
                     }`}>
                       {item.badge}

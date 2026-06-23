@@ -52,7 +52,7 @@ export default function AlertasPage() {
     <div className="space-y-6 max-w-[800px] mx-auto">
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+          <h1 className="text-3xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
             Alertas y Notificaciones
             {unreadCount > 0 && (
               <span className="text-xs font-bold bg-red-500 text-white px-2.5 py-0.5 rounded-full">
@@ -60,7 +60,7 @@ export default function AlertasPage() {
               </span>
             )}
           </h1>
-          <p className="text-sm text-slate-400 dark:text-slate-500 mt-1">Historial completo de eventos del sistema</p>
+          <p className="text-base text-slate-400 dark:text-slate-500 mt-1">Historial completo de eventos del sistema</p>
         </div>
         {unreadCount > 0 && (
           <button
@@ -79,7 +79,7 @@ export default function AlertasPage() {
         ) : notificaciones.length === 0 ? (
           <div className="text-center py-20">
             <Bell className="w-10 h-10 text-slate-200 dark:text-slate-700 mx-auto mb-3" />
-            <p className="text-sm text-slate-400 dark:text-slate-500">No hay alertas registradas</p>
+            <p className="text-base text-slate-400 dark:text-slate-500">No hay alertas registradas</p>
           </div>
         ) : (
           <div className="divide-y divide-slate-100 dark:divide-slate-700/50">
@@ -108,7 +108,7 @@ export default function AlertasPage() {
                       {new Date(n.createdAt).toLocaleDateString('es-PA', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' })}
                     </span>
                   </div>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                  <p className="text-base text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
                     {n.mensaje}
                   </p>
                 </div>

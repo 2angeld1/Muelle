@@ -98,8 +98,8 @@ export default function ExportacionesPage() {
       {/* Header */}
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Exportaciones</h1>
-          <p className="text-sm text-slate-400 dark:text-slate-500 mt-1">
+          <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Exportaciones</h1>
+          <p className="text-base text-slate-400 dark:text-slate-500 mt-1">
             Gestión de todas tus exportaciones activas y completadas
           </p>
         </div>
@@ -186,7 +186,7 @@ export default function ExportacionesPage() {
             <button 
               type="button" 
               onClick={() => setIsSlideOpen(false)} 
-              className="px-4 py-2.5 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
+              className="px-4 py-2.5 text-base font-medium text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
             >
               Cancelar
             </button>
@@ -210,7 +210,7 @@ export default function ExportacionesPage() {
             placeholder="Buscar por código, cliente o país..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full h-10 pl-10 pr-4 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 rounded-xl text-sm text-slate-700 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 shadow-sm focus:outline-none focus:ring-2 focus:ring-nexo-500/20"
+            className="w-full h-10 pl-10 pr-4 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 rounded-xl text-base text-slate-700 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 shadow-sm focus:outline-none focus:ring-2 focus:ring-nexo-500/20"
           />
         </div>
         <div className="flex items-center gap-2">
@@ -218,7 +218,7 @@ export default function ExportacionesPage() {
           <select
             value={filterEstatus}
             onChange={(e) => { setFilterEstatus(e.target.value); setLoading(true); }}
-            className="h-10 px-3 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 rounded-xl text-sm text-slate-700 dark:text-slate-200 shadow-sm appearance-none pr-8 cursor-pointer focus:outline-none focus:ring-2 focus:ring-nexo-500/20"
+            className="h-10 px-3 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 rounded-xl text-base text-slate-700 dark:text-slate-200 shadow-sm appearance-none pr-8 cursor-pointer focus:outline-none focus:ring-2 focus:ring-nexo-500/20"
           >
             {FILTER_OPTIONS.map((opt) => (
               <option key={opt.value} value={opt.value}>
@@ -245,23 +245,23 @@ export default function ExportacionesPage() {
         ) : filtered.length === 0 ? (
           <div className="text-center py-20">
             <Package className="w-10 h-10 text-slate-200 dark:text-slate-700 mx-auto mb-3" />
-            <p className="text-sm text-slate-400 dark:text-slate-500">No se encontraron exportaciones</p>
+            <p className="text-base text-slate-400 dark:text-slate-500">No se encontraron exportaciones</p>
           </div>
         ) : (
           <table className="w-full">
             <thead>
               <tr className="border-b border-slate-100 dark:border-slate-700/50 bg-slate-50/50 dark:bg-slate-800/50">
-                <th className="text-left py-3.5 px-5 text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                <th className="text-left py-3.5 px-5 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                   <div className="flex items-center gap-1 cursor-pointer hover:text-slate-600 dark:hover:text-slate-300">
                     Código <ArrowUpDown className="w-3 h-3" />
                   </div>
                 </th>
-                <th className="text-left py-3.5 px-5 text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Cliente</th>
-                <th className="text-left py-3.5 px-5 text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Destino</th>
-                <th className="text-left py-3.5 px-5 text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Naviera</th>
-                <th className="text-left py-3.5 px-5 text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Contenedores</th>
-                <th className="text-left py-3.5 px-5 text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Estado</th>
-                <th className="text-left py-3.5 px-5 text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Fecha</th>
+                <th className="text-left py-3.5 px-5 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Cliente</th>
+                <th className="text-left py-3.5 px-5 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Destino</th>
+                <th className="text-left py-3.5 px-5 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Naviera</th>
+                <th className="text-left py-3.5 px-5 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Contenedores</th>
+                <th className="text-left py-3.5 px-5 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Estado</th>
+                <th className="text-left py-3.5 px-5 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Fecha</th>
                 <th className="w-10"></th>
               </tr>
             </thead>
@@ -276,24 +276,24 @@ export default function ExportacionesPage() {
                     <span className="text-sm font-bold text-nexo-700 dark:text-nexo-400">{exp.codigo}</span>
                   </td>
                   <td className="py-3.5 px-5">
-                    <span className="text-sm font-medium text-slate-700 dark:text-slate-200">{exp.clienteNombre}</span>
+                    <span className="text-base font-medium text-slate-700 dark:text-slate-200">{exp.clienteNombre}</span>
                   </td>
                   <td className="py-3.5 px-5">
                     <div className="flex items-center gap-2">
                       <span className="text-base">{exp.banderaPais}</span>
-                      <span className="text-sm text-slate-600 dark:text-slate-300">{exp.paisDestino}</span>
+                      <span className="text-base text-slate-600 dark:text-slate-300">{exp.paisDestino}</span>
                     </div>
                   </td>
                   <td className="py-3.5 px-5">
-                    <span className="text-sm text-slate-500 dark:text-slate-400">{exp.naviera || '—'}</span>
+                    <span className="text-base text-slate-500 dark:text-slate-400">{exp.naviera || '—'}</span>
                   </td>
                   <td className="py-3.5 px-5">
-                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                    <span className="text-base font-medium text-slate-700 dark:text-slate-300">
                       {exp.contenedores?.length || 0}
                     </span>
                   </td>
                   <td className="py-3.5 px-5">
-                    <span className={`text-[11px] font-bold px-2.5 py-1 rounded-lg border ${ESTATUS_BADGE[exp.estatus] || ''}`}>
+                    <span className={`text-xs font-bold px-2.5 py-1 rounded-lg border ${ESTATUS_BADGE[exp.estatus] || ''}`}>
                       {ESTATUS_LABELS[exp.estatus] || exp.estatus}
                     </span>
                   </td>

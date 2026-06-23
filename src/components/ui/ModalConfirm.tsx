@@ -58,7 +58,7 @@ export function ModalConfirm({
               <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                 {title}
               </h3>
-              <p className="mt-2 text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+              <p className="mt-2 text-base text-slate-500 dark:text-slate-400 leading-relaxed">
                 {description}
               </p>
             </div>
@@ -69,7 +69,7 @@ export function ModalConfirm({
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 rounded-xl transition-colors"
+            className="px-4 py-2 text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 rounded-xl transition-colors"
           >
             {cancelText}
           </button>

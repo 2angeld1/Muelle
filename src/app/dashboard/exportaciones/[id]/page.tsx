@@ -135,7 +135,7 @@ export default function ExportacionDetailPage() {
       {/* Breadcrumb */}
       <Link
         href="/dashboard/exportaciones"
-        className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-nexo-500 transition-colors font-medium"
+        className="inline-flex items-center gap-2 text-base text-slate-400 hover:text-nexo-500 transition-colors font-medium"
       >
         <ArrowLeft className="w-4 h-4" /> Volver a exportaciones
       </Link>
@@ -153,7 +153,7 @@ export default function ExportacionDetailPage() {
             <h1 className="text-3xl font-black text-slate-900 tracking-tight">
               {exportacion.codigo}
             </h1>
-            <div className="flex items-center gap-4 mt-2 text-sm text-slate-500">
+            <div className="flex items-center gap-4 mt-2 text-base text-slate-500">
               <span className="flex items-center gap-1.5">
                 <MapPin className="w-4 h-4 text-slate-400" />
                 {exportacion.banderaPais} {exportacion.paisDestino} — {exportacion.puerto}
@@ -286,7 +286,7 @@ export default function ExportacionDetailPage() {
                         </div>
                       </div>
                     </div>
-                    <span className={`text-[10px] font-bold px-2.5 py-1 rounded-lg ${
+                    <span className={`text-xs font-bold px-2.5 py-1 rounded-lg ${
                       doc.estado === 'VERIFICADO'
                         ? 'bg-emerald-50 text-emerald-700'
                         : doc.estado === 'RECIBIDO'
@@ -299,7 +299,7 @@ export default function ExportacionDetailPage() {
                 );
               })}
               {(!exportacion.documentos || exportacion.documentos.length === 0) && (
-                <p className="text-sm text-slate-400 text-center py-8">No hay documentos registrados</p>
+                <p className="text-base text-slate-400 text-center py-8">No hay documentos registrados</p>
               )}
             </div>
           )}
@@ -314,17 +314,17 @@ export default function ExportacionDetailPage() {
                       <Container className="w-5 h-5 text-nexo-600" />
                     </div>
                     <div>
-                      <div className="text-sm font-bold text-slate-800">{cont.numero}</div>
+                      <div className="text-base font-bold text-slate-800">{cont.numero}</div>
                       <div className="text-xs text-slate-400">{cont.tipo} · Sello: {cont.sello || '—'}</div>
                     </div>
                   </div>
-                  <span className="text-[10px] font-bold px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600">
+                  <span className="text-xs font-bold px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600">
                     {CONTENEDOR_LABELS[cont.estado] || cont.estado}
                   </span>
                 </div>
               ))}
               {(!exportacion.contenedores || exportacion.contenedores.length === 0) && (
-                <p className="text-sm text-slate-400 text-center py-8">No hay contenedores registrados</p>
+                <p className="text-base text-slate-400 text-center py-8">No hay contenedores registrados</p>
               )}
             </div>
           )}
@@ -338,13 +338,13 @@ export default function ExportacionDetailPage() {
                     <Clock className="w-4 h-4 text-nexo-500" />
                   </div>
                   <div>
-                    <div className="text-sm font-bold text-slate-800">
+                    <div className="text-base font-bold text-slate-800">
                       {ESTATUS_LABELS[h.estatus] || h.estatus}
                     </div>
                     <div className="text-xs text-slate-400 mt-0.5">
                       {h.nota}
                     </div>
-                    <div className="text-[10px] text-slate-300 mt-1">
+                    <div className="text-xs text-slate-300 mt-1">
                       {new Date(h.fecha).toLocaleDateString('es-PA', {
                         day: '2-digit',
                         month: 'long',
@@ -362,7 +362,7 @@ export default function ExportacionDetailPage() {
           {/* Notas Tab */}
           {activeTab === 'notas' && (
             <div>
-              <p className="text-sm text-slate-600 whitespace-pre-wrap">
+              <p className="text-base text-slate-600 whitespace-pre-wrap">
                 {exportacion.notas || 'Sin notas para esta exportación.'}
               </p>
             </div>

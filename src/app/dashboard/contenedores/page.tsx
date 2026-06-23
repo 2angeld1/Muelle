@@ -62,8 +62,8 @@ export default function ContenedoresPage() {
     <div className="space-y-6 max-w-[1200px] mx-auto">
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Contenedores</h1>
-          <p className="text-sm text-slate-400 dark:text-slate-500 mt-1">Inventario y seguimiento de unidades físicas</p>
+          <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Contenedores</h1>
+          <p className="text-base text-slate-400 dark:text-slate-500 mt-1">Inventario y seguimiento de unidades físicas</p>
         </div>
       </div>
 
@@ -79,7 +79,7 @@ export default function ContenedoresPage() {
             className="w-full h-11 pl-10 pr-4 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 rounded-xl text-sm shadow-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-nexo-500/20"
           />
         </div>
-        <button className="h-11 px-4 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors shadow-sm flex items-center gap-2 text-sm text-slate-700 dark:text-slate-200 font-medium">
+        <button className="h-11 px-4 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors shadow-sm flex items-center gap-2 text-base text-slate-700 dark:text-slate-200 font-medium">
           <Filter className="w-4 h-4" /> Filtros
         </button>
       </div>
@@ -106,7 +106,7 @@ export default function ContenedoresPage() {
                     <div className="text-xs font-bold text-nexo-600 dark:text-nexo-400">{cont.tipo}</div>
                   </div>
                 </div>
-                <span className="text-[10px] font-bold px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg">
+                <span className="text-xs font-bold px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg">
                   {cont.estatusExp}
                 </span>
               </div>

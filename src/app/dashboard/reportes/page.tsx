@@ -32,8 +32,8 @@ export default function ReportesPage() {
     <div className="space-y-6 max-w-[1200px] mx-auto">
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Reportes</h1>
-          <p className="text-sm text-slate-400 dark:text-slate-500 mt-1">Gestor de reportes operativos y analíticos generados</p>
+          <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Reportes</h1>
+          <p className="text-base text-slate-400 dark:text-slate-500 mt-1">Gestor de reportes operativos y analíticos generados</p>
         </div>
         <button
           onClick={() => setIsSlideOpen(true)}
@@ -48,7 +48,7 @@ export default function ReportesPage() {
         <form onSubmit={handleUpload} className="space-y-6">
           <div className="border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-2xl p-10 text-center hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors cursor-pointer">
             <UploadCloud className="w-10 h-10 text-nexo-500 mx-auto mb-3" />
-            <p className="text-sm font-bold text-slate-900 dark:text-white">Sube tu reporte Excel o PDF</p>
+            <p className="text-base font-bold text-slate-900 dark:text-white">Sube tu reporte Excel o PDF</p>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Max. 20MB</p>
           </div>
           
@@ -63,7 +63,7 @@ export default function ReportesPage() {
           </div>
 
           <div className="pt-6 border-t border-slate-200 dark:border-slate-800 flex justify-end gap-3">
-            <button type="button" onClick={() => setIsSlideOpen(false)} className="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
+            <button type="button" onClick={() => setIsSlideOpen(false)} className="px-4 py-2.5 text-base font-medium text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
               Cancelar
             </button>
             <button type="submit" disabled={uploading} className="px-6 py-2.5 bg-nexo-500 hover:bg-nexo-600 text-white rounded-xl text-sm font-bold shadow-md disabled:opacity-50">
@@ -84,7 +84,7 @@ export default function ReportesPage() {
             className="w-full h-11 pl-10 pr-4 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 rounded-xl text-sm shadow-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-nexo-500/20"
           />
         </div>
-        <button className="h-11 px-4 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors shadow-sm flex items-center gap-2 text-sm text-slate-700 dark:text-slate-200 font-medium">
+        <button className="h-11 px-4 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors shadow-sm flex items-center gap-2 text-base text-slate-700 dark:text-slate-200 font-medium">
           <Filter className="w-4 h-4" /> Filtros
         </button>
       </div>
@@ -93,10 +93,10 @@ export default function ReportesPage() {
         <table className="w-full">
           <thead>
             <tr className="border-b border-slate-100 dark:border-slate-700/50 bg-slate-50/50 dark:bg-slate-800/50">
-              <th className="text-left py-3.5 px-5 text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Reporte</th>
-              <th className="text-left py-3.5 px-5 text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Tipo</th>
-              <th className="text-left py-3.5 px-5 text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Tamaño</th>
-              <th className="text-left py-3.5 px-5 text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Fecha Generación</th>
+              <th className="text-left py-3.5 px-5 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Reporte</th>
+              <th className="text-left py-3.5 px-5 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Tipo</th>
+              <th className="text-left py-3.5 px-5 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Tamaño</th>
+              <th className="text-left py-3.5 px-5 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Fecha Generación</th>
               <th className="w-16"></th>
             </tr>
           </thead>
@@ -108,7 +108,7 @@ export default function ReportesPage() {
                     <div className="w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-900/20 flex items-center justify-center text-indigo-500">
                       <BarChart className="w-4 h-4" />
                     </div>
-                    <div className="text-sm font-bold text-slate-900 dark:text-white">{doc.nombre}</div>
+                    <div className="text-base font-bold text-slate-900 dark:text-white">{doc.nombre}</div>
                   </div>
                 </td>
                 <td className="py-3.5 px-5">
@@ -117,10 +117,10 @@ export default function ReportesPage() {
                   </span>
                 </td>
                 <td className="py-3.5 px-5">
-                  <span className="text-sm text-slate-500 dark:text-slate-400">{doc.size}</span>
+                  <span className="text-base text-slate-500 dark:text-slate-400">{doc.size}</span>
                 </td>
                 <td className="py-3.5 px-5">
-                  <span className="text-sm text-slate-500 dark:text-slate-400">{doc.fecha}</span>
+                  <span className="text-base text-slate-500 dark:text-slate-400">{doc.fecha}</span>
                 </td>
                 <td className="py-3.5 px-5 text-right">
                   <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">

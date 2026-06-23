@@ -63,8 +63,8 @@ export default function ClientesPage() {
     <div className="space-y-6 max-w-[1200px] mx-auto">
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Clientes</h1>
-          <p className="text-sm text-slate-400 dark:text-slate-500 mt-1">Gestión de tu cartera de clientes</p>
+          <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Clientes</h1>
+          <p className="text-base text-slate-400 dark:text-slate-500 mt-1">Gestión de tu cartera de clientes</p>
         </div>
         <button
           onClick={() => setIsSlideOpen(true)}
@@ -129,7 +129,7 @@ export default function ClientesPage() {
             <button 
               type="button" 
               onClick={() => setIsSlideOpen(false)} 
-              className="px-4 py-2.5 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
+              className="px-4 py-2.5 text-base font-medium text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
             >
               Cancelar
             </button>
@@ -162,7 +162,7 @@ export default function ClientesPage() {
       ) : filtered.length === 0 ? (
         <div className="text-center py-20">
           <Users className="w-10 h-10 text-slate-200 dark:text-slate-700 mx-auto mb-3" />
-          <p className="text-sm text-slate-400 dark:text-slate-500">No se encontraron clientes</p>
+          <p className="text-base text-slate-400 dark:text-slate-500">No se encontraron clientes</p>
         </div>
       ) : (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -173,7 +173,7 @@ export default function ClientesPage() {
                   {cliente.nombre.charAt(0)}
                 </div>
                 <div className="min-w-0">
-                  <div className="text-sm font-bold text-slate-900 dark:text-white truncate">{cliente.nombre}</div>
+                  <div className="text-base font-bold text-slate-900 dark:text-white truncate">{cliente.nombre}</div>
                   {cliente.pais && <div className="text-xs text-slate-400 dark:text-slate-500">{cliente.pais}</div>}
                 </div>
               </div>

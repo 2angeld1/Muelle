@@ -116,10 +116,10 @@ export default function UsuariosPage() {
     <div className="space-y-6 max-w-[1000px] mx-auto">
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+          <h1 className="text-3xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <Shield className="w-6 h-6 text-nexo-500" /> Gestión de Usuarios
           </h1>
-          <p className="text-sm text-slate-400 dark:text-slate-500 mt-1">Añade y administra los accesos al sistema</p>
+          <p className="text-base text-slate-400 dark:text-slate-500 mt-1">Añade y administra los accesos al sistema</p>
         </div>
         <button
           onClick={() => setIsSlideOpen(true)}
@@ -172,7 +172,7 @@ export default function UsuariosPage() {
           </div>
 
           <div className="pt-6 border-t border-slate-200 dark:border-slate-800 flex justify-end gap-3">
-            <button type="button" onClick={() => setIsSlideOpen(false)} className="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
+            <button type="button" onClick={() => setIsSlideOpen(false)} className="px-4 py-2.5 text-base font-medium text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
               Cancelar
             </button>
             <button type="submit" disabled={formLoading} className="px-6 py-2.5 bg-nexo-500 hover:bg-nexo-600 text-white rounded-xl text-sm font-bold shadow-md disabled:opacity-50">
@@ -187,16 +187,16 @@ export default function UsuariosPage() {
         {usuarios.length === 0 ? (
           <div className="text-center py-20">
             <Users className="w-10 h-10 text-slate-200 dark:text-slate-700 mx-auto mb-3" />
-            <p className="text-sm text-slate-400 dark:text-slate-500">No hay usuarios registrados</p>
+            <p className="text-base text-slate-400 dark:text-slate-500">No hay usuarios registrados</p>
           </div>
         ) : (
           <table className="w-full">
             <thead>
               <tr className="border-b border-slate-100 dark:border-slate-700/50 bg-slate-50/50 dark:bg-slate-800/50">
-                <th className="text-left py-3.5 px-5 text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Usuario</th>
-                <th className="text-left py-3.5 px-5 text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Correo</th>
-                <th className="text-left py-3.5 px-5 text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Rol</th>
-                <th className="text-right py-3.5 px-5 text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Acciones</th>
+                <th className="text-left py-3.5 px-5 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Usuario</th>
+                <th className="text-left py-3.5 px-5 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Correo</th>
+                <th className="text-left py-3.5 px-5 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Rol</th>
+                <th className="text-right py-3.5 px-5 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Acciones</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-50 dark:divide-slate-700/50">
@@ -207,11 +207,11 @@ export default function UsuariosPage() {
                       <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-nexo-500 to-nexo-700 flex items-center justify-center text-white font-bold text-sm shadow-sm">
                         {u.nombre.charAt(0).toUpperCase()}
                       </div>
-                      <div className="text-sm font-bold text-slate-900 dark:text-white">{u.nombre}</div>
+                      <div className="text-base font-bold text-slate-900 dark:text-white">{u.nombre}</div>
                     </div>
                   </td>
                   <td className="py-4 px-5">
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{u.email}</div>
+                    <div className="text-base text-slate-500 dark:text-slate-400">{u.email}</div>
                   </td>
                   <td className="py-4 px-5">
                     <span className={`text-xs font-bold px-2 py-1 rounded-md ${u.rol === 'ADMIN' ? 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}`}>

@@ -98,7 +98,7 @@ export default function Topbar() {
               </div>
               <div className="max-h-[300px] overflow-y-auto">
                 {notificaciones.length === 0 ? (
-                  <div className="p-6 text-center text-sm text-slate-500 dark:text-slate-400">No hay notificaciones</div>
+                  <div className="p-6 text-center text-base text-slate-500 dark:text-slate-400">No hay notificaciones</div>
                 ) : (
                   notificaciones.map((n) => (
                     <div
@@ -141,10 +141,10 @@ export default function Topbar() {
               {user ? user.nombre.charAt(0).toUpperCase() : 'U'}
             </div>
             <div className="hidden md:flex flex-col items-start">
-              <span className="text-sm font-bold text-slate-900 dark:text-white leading-tight">
+              <span className="text-base font-bold text-slate-900 dark:text-white leading-tight">
                 {user ? user.nombre : 'Cargando...'}
               </span>
-              <span className="text-[10px] font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+              <span className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                 {user ? user.rol : 'Usuario'}
               </span>
             </div>
@@ -154,7 +154,7 @@ export default function Topbar() {
           {showProfile && (
             <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 py-2 animate-fade-in z-50">
               <div className="px-4 py-2 border-b border-slate-50 dark:border-slate-700 mb-2">
-                <div className="text-sm font-bold text-slate-900 dark:text-white">{user?.nombre}</div>
+                <div className="text-base font-bold text-slate-900 dark:text-white">{user?.nombre}</div>
                 <div className="text-xs text-slate-500 dark:text-slate-400 truncate">{user?.email}</div>
               </div>
               <button

@@ -10,8 +10,8 @@ export default function TrackingPage() {
     <div className="space-y-6 max-w-[1200px] mx-auto h-[calc(100vh-8rem)] flex flex-col">
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Tracking</h1>
-          <p className="text-sm text-slate-400 dark:text-slate-500 mt-1">Monitoreo en tiempo real de embarques</p>
+          <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Tracking</h1>
+          <p className="text-base text-slate-400 dark:text-slate-500 mt-1">Monitoreo en tiempo real de embarques</p>
         </div>
       </div>
 
@@ -33,13 +33,13 @@ export default function TrackingPage() {
             <div className="mb-6">
               <div className="flex items-center justify-between mb-2">
                 <h3 className="font-bold text-slate-900 dark:text-white">EXP-2026-001</h3>
-                <span className="text-[10px] font-bold px-2 py-1 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-400 rounded-lg border border-indigo-100 dark:border-indigo-800/50">
+                <span className="text-xs font-bold px-2 py-1 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-400 rounded-lg border border-indigo-100 dark:border-indigo-800/50">
                   EN TRÁNSITO
                 </span>
               </div>
-              <div className="text-sm text-slate-500 dark:text-slate-400">Naviera: MSC</div>
-              <div className="text-sm text-slate-500 dark:text-slate-400">Origen: Callao, Perú</div>
-              <div className="text-sm text-slate-500 dark:text-slate-400">Destino: Valencia, España</div>
+              <div className="text-base text-slate-500 dark:text-slate-400">Naviera: MSC</div>
+              <div className="text-base text-slate-500 dark:text-slate-400">Origen: Callao, Perú</div>
+              <div className="text-base text-slate-500 dark:text-slate-400">Destino: Valencia, España</div>
             </div>
 
             {/* Timeline */}
@@ -95,7 +95,7 @@ export default function TrackingPage() {
               <Map className="w-10 h-10 text-nexo-500" />
             </div>
             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Mapa Interactivo de Tracking</h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400 text-center max-w-md">
+            <p className="text-base text-slate-500 dark:text-slate-400 text-center max-w-md">
               (Simulación MVP) El contenedor MSCU1234567 de la exportación EXP-2026-001 se encuentra navegando.
             </p>
             <button className="mt-6 flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-sm font-bold transition-all shadow-sm">
