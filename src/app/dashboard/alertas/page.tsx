@@ -20,7 +20,7 @@ export default function AlertasPage() {
   const markAsRead = async (id: string) => {
     try {
       await fetch('/api/notificaciones', {
-        method: 'PATCH',
+        method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id })
       });
@@ -35,7 +35,7 @@ export default function AlertasPage() {
     try {
       await Promise.all(notificaciones.filter(n => !n.leida).map(n => 
         fetch('/api/notificaciones', {
-          method: 'PATCH',
+          method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ id: n._id })
         })

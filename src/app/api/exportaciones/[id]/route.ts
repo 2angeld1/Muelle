@@ -59,6 +59,17 @@ export async function PUT(
       delete (exportacion as any).notaHistorial;
       await exportacion.save();
 
+      try {
+        const Notificacion = (await import("@/models/Notificacion")).default;
+        await Notificacion.create({
+          tipo: "info",
+          titulo: "Cambio de Estatus",
+          mensaje: `La exportación ${exportacion.codigo} ha cambiado a ${body.estatus}`,
+        });
+      } catch (notifError) {
+        console.error("Error creating notification:", notifError);
+      }
+
       return Response.json({
         success: true,
         exportacion: JSON.parse(JSON.stringify(exportacion)),

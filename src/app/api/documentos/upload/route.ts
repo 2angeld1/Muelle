@@ -57,6 +57,17 @@ export async function POST(req: NextRequest) {
       formato: ext,
     });
 
+    try {
+      const Notificacion = (await import("@/models/Notificacion")).default;
+      await Notificacion.create({
+        tipo: "info",
+        titulo: "Nuevo Documento",
+        mensaje: `Se ha subido el archivo ${file.name} (${tipo})`,
+      });
+    } catch (notifError) {
+      console.error("Error creating notification:", notifError);
+    }
+
     return NextResponse.json({ success: true, documento }, { status: 201 });
   } catch (error: any) {
     console.error("Error uploading document:", error);

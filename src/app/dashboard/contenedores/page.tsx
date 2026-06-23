@@ -31,14 +31,7 @@ export default function ContenedoresPage() {
           }
         });
         
-        // Simular algunos si no hay para el MVP
-        if (allContenedores.length === 0) {
-          allContenedores = [
-            { numero: 'MSCU1234567', tipo: '40ft HC', sello: 'SL-987654', peso: 24500, exportacionCodigo: 'EXP-2026-001', clienteNombre: 'Comercializadora Global', naviera: 'MSC', estatusExp: 'EN_TRANSITO' },
-            { numero: 'HLBU9876543', tipo: '20ft', sello: 'SL-123456', peso: 18200, exportacionCodigo: 'EXP-2026-002', clienteNombre: 'Importadora Sur', naviera: 'Hapag-Lloyd', estatusExp: 'EN_ADUANA' },
-            { numero: 'CMAU5555555', tipo: '40ft NOR', sello: 'SL-555555', peso: 22100, exportacionCodigo: 'EXP-2026-003', clienteNombre: 'Distribuidora Este', naviera: 'CMA CGM', estatusExp: 'EN_PREPARACION' },
-          ];
-        }
+        // Sin mocks, se mostrará la lista vacía si no hay contenedores.
 
         setContenedores(allContenedores);
       } catch (err) {

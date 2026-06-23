@@ -86,6 +86,17 @@ export async function POST(request: NextRequest) {
       fechaSolicitud: new Date(),
     });
 
+    try {
+      const Notificacion = (await import("@/models/Notificacion")).default;
+      await Notificacion.create({
+        tipo: "success",
+        titulo: "Nueva Exportación",
+        mensaje: `Se ha creado la exportación ${codigo} para el cliente ${clienteNombre.toUpperCase()}`,
+      });
+    } catch (notifError) {
+      console.error("Error creating notification:", notifError);
+    }
+
     return Response.json(
       {
         success: true,
